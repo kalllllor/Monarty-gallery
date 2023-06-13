@@ -16,6 +16,7 @@ import {
   PaintingMaterial,
   EmissiveMaterial,
   SculptureMaterial,
+  BackgroundMaterial,
 } from "../../utils/Materials";
 import { RaycasterHelper } from "../../utils/Raycaster";
 
@@ -811,10 +812,11 @@ export function Gallery() {
         <mesh
           geometry={nodes.background.geometry}
           name="background"
-          material={nodes.background.material}
           position={[0.048, 2.97, -0.539]}
           scale={39.411}
-        />
+        >
+          <BackgroundMaterial />
+        </mesh>
         <mesh
           geometry={nodes.ramka21.geometry}
           name="ramka21"

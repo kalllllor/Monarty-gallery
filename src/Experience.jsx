@@ -42,7 +42,7 @@ export default function Experience() {
         <Suspense fallback={<Loader />}>
           <Effects />
           <Physics gravity={[0, -1000, 0]}>
-            <Environment preset="city" />
+            <Environment files="/textures/others/greenwich_park_03_4k.hdr" />
             <Walls />
             <Gallery />
             {isAnimationActive ? (

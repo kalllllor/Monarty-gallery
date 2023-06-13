@@ -296,3 +296,11 @@ export const SculptureMaterial = () => {
   colorMap.flipY = false;
   return <meshStandardMaterial map={colorMap} />;
 };
+
+export const BackgroundMaterial = () => {
+  const [colorMap] = useLoader(TextureLoader, [
+    "/textures/others/greenwich-park-03-4k.png",
+  ]);
+  colorMap.flipY = false;
+  return <meshStandardMaterial map={colorMap} />;
+};
