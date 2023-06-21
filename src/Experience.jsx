@@ -102,7 +102,7 @@ export default function Experience() {
               isActivePainting={isActivePainting}
             />
 
-            {/* {isAnimationActive ? (
+            {isAnimationActive ? (
               <Camera
                 handleFinishAnimation={
                   handleFinishAnimationCallback
@@ -120,9 +120,9 @@ export default function Experience() {
                   ref={pointerRef}
                 />
               </>
-            )} */}
+            )}
 
-            <PointerLockControls
+            {/* <PointerLockControls
               ref={pointerRef}
             />
 
@@ -133,7 +133,7 @@ export default function Experience() {
               color="yellow"
             />
 
-            <Camera />
+            <Camera /> */}
             <Lights />
           </Physics>
         </Suspense>
