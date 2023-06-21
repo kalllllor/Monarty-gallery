@@ -7,9 +7,8 @@ const Effects = () => {
   return (
     <EffectComposer>
       <Bloom
-        luminanceThreshold={0}
-        luminanceSmoothing={0.9}
-        height={300}
+        luminanceThreshold={0.5}
+        luminanceSmoothing={1.5}
       />
     </EffectComposer>
   );

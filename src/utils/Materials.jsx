@@ -253,7 +253,12 @@ export const FrameMaterial = ({ index }) => {
   ]);
 
   colorMap.flipY = false;
-  return <meshStandardMaterial map={colorMap} />;
+  return (
+    <meshStandardMaterial
+      emissiveIntensity={0.3}
+      map={colorMap}
+    />
+  );
 };
 
 export const PaintingMaterial = ({ index }) => {

@@ -20,8 +20,10 @@ const Camera = ({ handleFinishAnimation }) => {
 
   useEffect(() => {
     camera.up = new Vector3(0, 1, 0);
-    camera.position.set(-10.628, 1.159, -1.913);
-    runAnimation(camera);
+    camera.position.set(-25.84, 6.19, 0.1);
+    camera.rotation.set(0, -1.06, 0);
+
+    // runAnimation(camera);
   }, []);
 
   const completedFun = () => {
@@ -37,7 +39,7 @@ const Camera = ({ handleFinishAnimation }) => {
       onComplete: completedFun,
     });
     if (camera) {
-      animationData.data.forEach((element) => {
+      animationData.newData.forEach((element) => {
         tlPosition.to(camera.position, {
           duration: element.time,
           repeat: 0,
@@ -64,7 +66,8 @@ const Camera = ({ handleFinishAnimation }) => {
       ref={cameraRef}
       fov={90}
       near={0.1}
-      position={[-10.628, 1.159, -1.913]}
+      rotation={[0, -1.06, 0]}
+      position={[-25.84, 6.19, 0.1]}
       far={70}
       args={[camera, domElement]}
     />

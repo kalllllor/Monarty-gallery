@@ -14,6 +14,15 @@ h3 {
   white-space: nowrap;
 }
 
+button {
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 .lockscreen {
   position: absolute;
   z-index: 9999;
@@ -21,14 +30,29 @@ h3 {
   width: 100vw;
   top: 0px;
   left: 0px;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: block;
   align-items: center;
   justify-content: center;
   color: white;
   white-space: nowrap;
   font-size: 24px;
   cursor: pointer;
+}
+
+.lockscreen-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.lockscreen-content button {
+  position: absolute;
+  right: 16px;
+  top: 8px;
 }
 
 .loading-bar {

@@ -25,14 +25,30 @@ function useArrayRef() {
   return [refs, (el) => el && refs.push(el)];
 }
 
-export function Gallery() {
+const emissiveColor = {
+  highlight: {
+    isColor: true,
+    r: 1.2,
+    g: 1.2,
+    b: 1.2,
+  },
+  normal: {
+    isColor: true,
+    r: 0,
+    g: 0,
+    b: 0,
+  },
+};
+
+export function Gallery({
+  getActivePainting,
+  clickActivePainting,
+  isActivePainting,
+}) {
   const { nodes } = useGLTF("/gallery_test2.glb");
   const [paintings, setPaintings] = useState([]);
-
+  const [frames, setFrames] = useState([]);
   const [elements, ref] = useArrayRef();
-  const [activePainting, setActivePainting] =
-    useState(null);
-
   const groupRef = useRef();
 
   useEffect(() => {
@@ -41,8 +57,11 @@ export function Gallery() {
         if (
           child.name.includes("obraz") ||
           child.name.includes("rzezba")
-        )
+        ) {
           paintings.push(child);
+        } else if (child.name.includes("ramka")) {
+          frames.push(child);
+        }
       });
     setPaintings(paintings);
   }, []);
@@ -50,20 +69,44 @@ export function Gallery() {
   const getActivePaintingCallback = (
     painting
   ) => {
-    for (const element of elements) {
-      element.style.display = "none";
-      if (
-        element.parentElement.className ===
-        painting.name
-      )
-        element.style.display = "block";
+    getActivePainting(painting);
+    if (painting) {
+      const paintingNumber =
+        painting.name.replace(/\D/g, "");
+
+      const activeFrame = frames.find(
+        (frame) =>
+          frame.name.replace(/\D/g, "") ===
+          paintingNumber
+      );
+
+      activeFrame.material.emissive =
+        emissiveColor.highlight;
+      for (const element of elements) {
+        element.style.display = "none";
+        if (
+          element.parentElement.className ===
+          painting.name
+        )
+          element.style.display = "block";
+      }
     }
   };
 
   const noActivePaintingCallback = () => {
+    getActivePainting(null);
     for (const element of elements) {
       element.style.display = "none";
     }
+
+    for (const element of frames) {
+      element.material.emissive =
+        emissiveColor.normal;
+    }
+  };
+
+  const clickActivePaintingCallback = () => {
+    clickActivePainting();
   };
 
   return (
@@ -75,6 +118,9 @@ export function Gallery() {
         }
         noActivePainting={
           noActivePaintingCallback
+        }
+        clickActivePainting={
+          clickActivePaintingCallback
         }
       />
       <group ref={groupRef} dispose={null}>
@@ -129,6 +175,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Sculpture no. 1</h3>
@@ -148,6 +195,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 20</h3>
@@ -167,6 +215,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 23</h3>
@@ -187,6 +236,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 24</h3>
@@ -206,6 +256,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 27</h3>
@@ -226,6 +277,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 1</h3>
@@ -246,6 +298,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 16</h3>
@@ -266,6 +319,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 19</h3>
@@ -284,6 +338,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 9</h3>
@@ -303,6 +358,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 12</h3>
@@ -323,6 +379,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 4</h3>
@@ -343,6 +400,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 8</h3>
@@ -518,6 +576,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 21</h3>
@@ -539,6 +598,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 25</h3>
@@ -560,6 +620,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 14</h3>
@@ -581,6 +642,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 17</h3>
@@ -602,6 +664,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 10</h3>
@@ -623,6 +686,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 5</h3>
@@ -644,6 +708,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 2</h3>
@@ -663,6 +728,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 22</h3>
@@ -682,6 +748,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 26</h3>
@@ -702,6 +769,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 15</h3>
@@ -722,6 +790,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 18</h3>
@@ -741,6 +810,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 11</h3>
@@ -761,6 +831,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 7</h3>
@@ -781,6 +852,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 3</h3>
@@ -802,6 +874,7 @@ export function Gallery() {
             style={{
               display: "none",
               whiteSpace: "no-break",
+              color: "white",
             }}
           >
             <h3>Painting no. 13</h3>
