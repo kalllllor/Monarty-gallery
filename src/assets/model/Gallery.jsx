@@ -106,6 +106,9 @@ export function Gallery({
   };
 
   const clickActivePaintingCallback = () => {
+    for (const element of elements) {
+      element.style.display = "none";
+    }
     clickActivePainting();
   };
 

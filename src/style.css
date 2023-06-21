@@ -37,13 +37,13 @@ button {
   color: white;
   white-space: nowrap;
   font-size: 24px;
-  cursor: pointer;
 }
 
 .lockscreen-content {
   height: 100%;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
@@ -53,6 +53,11 @@ button {
   position: absolute;
   right: 16px;
   top: 8px;
+}
+
+.lockscreen-content img {
+  height: 60%;
+  width: auto;
 }
 
 .loading-bar {

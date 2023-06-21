@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../style.css";
 import { useEffect } from "react";
-
+import paintingImg from "../assets/painting.jpg";
 const Lockscreen = ({
   isActivePainting,
   deactivePainting,
@@ -25,7 +25,15 @@ const Lockscreen = ({
         <button onClick={deactivePaintingHandle}>
           exit
         </button>
-        {activePainting && activePainting.name}
+        <h3>
+          {activePainting &&
+            "painting no. " +
+              activePainting.name.replace(
+                /\D/g,
+                ""
+              )}
+        </h3>
+        <img src={paintingImg} alt="painting" />
       </div>
     </div>
   ) : (
