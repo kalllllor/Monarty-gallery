@@ -8,8 +8,7 @@ import animationData from "../assets/data/position.json";
 
 //W PRZYPADKU ZMIANY JUŻ NA PRODUKCJE PRZEŁĄCZYĆ NA PERSPECTIVE CAMERA!!!!!!!!!!!!!!!!
 
-const deg2rad = (degrees) =>
-  degrees * (Math.PI / 180);
+const deg2rad = (degrees) => degrees * (Math.PI / 180);
 
 const Camera = ({ handleFinishAnimation }) => {
   const {
