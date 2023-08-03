@@ -7,7 +7,6 @@ const Lockscreen = ({ isActivePainting, deactivePainting, activePainting }) => {
 
   useEffect(() => {
     setIsLocked(isActivePainting);
-    console.log(activePainting);
   }, [isActivePainting]);
 
   const deactivePaintingHandle = () => {

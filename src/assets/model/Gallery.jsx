@@ -869,7 +869,7 @@ export function Gallery({ getActivePainting, clickActivePainting, isActivePainti
           <EmissiveMaterial value={0.1} />
         </mesh>
         <mesh geometry={nodes.emisyjny.geometry} name="emisyjny" position={[-7.75, 6.54, -8.82]} rotation={[0, -0.15708, 0]} scale={0.005}>
-          <EmissiveMaterial value={0.1} />
+          <EmissiveMaterial value={0.3} />
         </mesh>
         <mesh geometry={nodes.emisyjny001.geometry} name="emisyjny001" position={[-6.17, 2.02, 11.17]}>
           <EmissiveMaterial value={0.1} />

@@ -1,8 +1,7 @@
-import { CameraControls } from "@react-three/drei";
+import { CameraControls, PerspectiveCamera, OrbitControls } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import { PerspectiveCamera } from "@react-three/drei";
 import { Vector3 } from "three";
 import animationData from "../assets/data/position.json";
 
@@ -21,8 +20,7 @@ const Camera = ({ handleFinishAnimation }) => {
     camera.up = new Vector3(0, 1, 0);
     camera.position.set(-25.84, 6.19, 0.1);
     camera.rotation.set(0, -1.06, 0);
-
-    // runAnimation(camera);
+    runAnimation(camera);
   }, []);
 
   const completedFun = () => {
@@ -48,20 +46,28 @@ const Camera = ({ handleFinishAnimation }) => {
           ease: "none",
         });
 
-        tlRotation.to(camera.rotation, {
-          duration: element.time,
-          repeat: 0,
-          x: element.rotation.x,
-          y: element.rotation.y,
-          z: element.rotation.z,
-          ease: "none",
-        });
+        // tlRotation.to(camera.rotation, {
+        //   duration: element.time,
+        //   repeat: 0,
+        //   x: element.rotation.x,
+        //   y: element.rotation.y,
+        //   z: element.rotation.z,
+        //   ease: "none",
+        // });
+      });
+      tlRotation.to(camera.rotation, {
+        duration: 4.5,
+        repeat: 0,
+        x: 0,
+        y: -2.6,
+        z: 0,
+        ease: "none",
       });
     }
   };
 
   return (
-    <CameraControls
+    <PerspectiveCamera
       ref={cameraRef}
       fov={90}
       near={0.1}

@@ -56,7 +56,7 @@ export default function Experience() {
       <Canvas gl={{ preserveDrawingBuffer: true }} shadows>
         <Suspense fallback={<Loader />}>
           <Effects />
-          <Physics gravity={[0, -1000, 0]}>
+          <Physics gravity={[0, -100, 0]}>
             <Walls />
             <Gallery
               getActivePainting={getActivePaintingCallBack}
@@ -64,27 +64,19 @@ export default function Experience() {
               isActivePainting={isActivePainting}
             />
 
-            {/* {isAnimationActive ? (
+            {isAnimationActive ? (
               <Camera handleFinishAnimation={handleFinishAnimationCallback} />
             ) : (
               <>
                 <BaseCharacter controls position={[-7.364, 2.159, 5.78]} args={[1, 1]} color="yellow" />
                 <PointerLockControls ref={pointerRef} />
               </>
-            )} */}
+            )}
 
-            {/* <PointerLockControls
-              ref={pointerRef}
-            />
+            {/* <PointerLockControls ref={pointerRef} />
 
-            <BaseCharacter
-              controls
-              position={[-7.364, 2.159, 5.78]}
-              args={[0.5, 1]}
-              color="yellow"
-            /> */}
+            <BaseCharacter controls position={[-7.364, 2.159, 5.78]} args={[0.5, 16, 16]} color="yellow" /> */}
 
-            <Camera />
             <Lights />
           </Physics>
         </Suspense>
