@@ -64,14 +64,14 @@ export default function Experience() {
               isActivePainting={isActivePainting}
             />
 
-            {isAnimationActive ? (
+            {/* {isAnimationActive ? (
               <Camera handleFinishAnimation={handleFinishAnimationCallback} />
             ) : (
               <>
                 <BaseCharacter controls position={[-7.364, 2.159, 5.78]} args={[1, 1]} color="yellow" />
                 <PointerLockControls ref={pointerRef} />
               </>
-            )}
+            )} */}
 
             {/* <PointerLockControls
               ref={pointerRef}
@@ -84,7 +84,7 @@ export default function Experience() {
               color="yellow"
             /> */}
 
-            {/* <Camera /> */}
+            <Camera />
             <Lights />
           </Physics>
         </Suspense>

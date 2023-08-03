@@ -39,7 +39,7 @@ const emissiveColor = {
 };
 
 export function Gallery({ getActivePainting, clickActivePainting, isActivePainting }) {
-  const { nodes } = useGLTF("/galeria.glb");
+  const { nodes } = useGLTF("/gallery_done.glb");
   const [paintings, setPaintings] = useState([]);
   const [frames, setFrames] = useState([]);
   const [elements, ref] = useArrayRef();
@@ -886,107 +886,20 @@ export function Gallery({ getActivePainting, clickActivePainting, isActivePainti
         <mesh geometry={nodes.sufit.geometry} name="sufit" material={nodes.sufit.material} position={[1.03691, 12, -0.410466]} scale={0.01}>
           <WallMaterial />
         </mesh>
-        <mesh geometry={nodes.zewn_22.geometry} name="zewn_22" material={nodes.zewn_22.material} position={[3.480027, 10.000407, -8.699057]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_13.geometry} name="zewn_13" material={nodes.zewn_13.material} position={[0.884605, 10.666495, -12.690031]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_24.geometry} name="zewn_24" material={nodes.zewn_24.material} position={[4.051697, 6.001525, -12.047363]}>
-          <WallMaterial />
-        </mesh>
-        <mesh
-          geometry={nodes.zewn_26.geometry}
-          name="zewn_26"
-          material={nodes.zewn_26.material}
-          position={[-10.59, 1.86, -13.96]}
-          rotation={[Math.PI, -0.000002, Math.PI]}
-          scale={[0.0725, 0.04, 0.0025]}
-        >
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_2.geometry} name="zewn_2" material={nodes.zewn_2.material} position={[-5.493328, 2.000067, -3.943168]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_11.geometry} name="zewn_11" material={nodes.zewn_11.material} position={[0.917276, 1.333454, -13.923455]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_1.geometry} name="zewn_1" material={nodes.zewn_1.material} position={[-9.255733, 2.000335, 6.470742]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_5.geometry} name="zewn_5" material={nodes.zewn_5.material} position={[-8.543902, 10.666716, -3.824013]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_19.geometry} name="zewn_19" material={nodes.zewn_19.material} position={[2.156341, 9.986996, 8.881533]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_10.geometry} name="zewn_10" material={nodes.zewn_10.material} position={[8.19259, 10.666555, 0.501421]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_7.geometry} name="zewn_7" material={nodes.zewn_7.material} position={[-1.085632, 10.666503, 13.956363]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_6.geometry} name="zewn_6" material={nodes.zewn_6.material} position={[-1.086231, 4, 13.998086]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_20.geometry} name="zewn_20" material={nodes.zewn_20.material} position={[2.141807, 6.000008, 8.85705]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_21.geometry} name="zewn_21" material={nodes.zewn_21.material} position={[2.156349, 2.013041, 8.881529]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_18.geometry} name="zewn_18" material={nodes.zewn_18.material} position={[-1.924906, 5.9662, 5.980153]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_17.geometry} name="zewn_17" material={nodes.zewn_17.material} position={[-8.27832, 10.034484, -9.648612]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_16.geometry} name="zewn_16" material={nodes.zewn_16.material} position={[-8.9392, 6.009426, 3.232223]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_3.geometry} name="zewn_3" material={nodes.zewn_3.material} position={[-9.75213, 6.000628, 8.983467]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_15.geometry} name="zewn_15" material={nodes.zewn_15.material} position={[-9.322824, 2.441175, 7.895616]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_4.geometry} name="zewn_4" material={nodes.zewn_4.material} position={[-8.167992, 5.714749, -8.441372]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_25.geometry} name="zewn_25" material={nodes.zewn_25.material} position={[2.481781, 2.373063, -13.287053]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_12.geometry} name="zewn_12" material={nodes.zewn_12.material} position={[2.513947, 5.599945, -12.994187]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_9.geometry} name="zewn_9" material={nodes.zewn_9.material} position={[9.167274, 3.636271, -8.305383]}>
-          <WallMaterial />
-        </mesh>
-        <mesh
-          geometry={nodes.zewn_23.geometry}
-          name="zewn_23"
-          scale={1.001}
-          material={nodes.zewn_23.material}
-          position={[9.000406, 2.667824, -8.70731]}
-        >
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_8.geometry} name="zewn_8" material={nodes.zewn_8.material} position={[7.869822, 2.999998, 6.480416]}>
-          <WallMaterial />
-        </mesh>
-        <mesh geometry={nodes.zewn_14.geometry} name="zewn_14" material={nodes.zewn_14.material} position={[-5.403248, 1.99995, -3.873478]}>
-          <WallMaterial />
-        </mesh>
+
         <mesh geometry={nodes["podloga-jodelka002"].geometry} position={[6.287, 0, -4.007]}>
           <HalfInfinityFloor />
         </mesh>
 
-        <mesh geometry={nodes.zewn_23005.geometry} position={[3.31, -1.341, -6.232]}>
+        <mesh geometry={nodes.sciana_infinity.geometry} position={[3.31, -1.341, -6.232]}>
           <InfinityWallMaterial />
+        </mesh>
+        <mesh geometry={nodes.sciana_zewn.geometry} position={[9, 2.668, -8.707]}>
+          <WallMaterial />
         </mesh>
       </group>
     </>
   );
 }
 
-useGLTF.preload("/galeria.glb");
+useGLTF.preload("/gallery_done.glb");

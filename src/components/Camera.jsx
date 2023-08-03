@@ -22,7 +22,7 @@ const Camera = ({ handleFinishAnimation }) => {
     camera.position.set(-25.84, 6.19, 0.1);
     camera.rotation.set(0, -1.06, 0);
 
-    runAnimation(camera);
+    // runAnimation(camera);
   }, []);
 
   const completedFun = () => {
@@ -61,7 +61,7 @@ const Camera = ({ handleFinishAnimation }) => {
   };
 
   return (
-    <PerspectiveCamera
+    <CameraControls
       ref={cameraRef}
       fov={90}
       near={0.1}

@@ -79,6 +79,7 @@ export const FloorMetalMaterial = () => {
 //SCIANY
 
 export const WallMaterial = () => {
+  const scale = 0.821;
   const [colorMap, normalMap, roughnessMap, aoMap] = useLoader(TextureLoader, [
     "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_COL_VAR1_3K_SPECULAR.jpg",
     "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_NRM_3K_SPECULAR.jpg",
@@ -86,15 +87,16 @@ export const WallMaterial = () => {
     "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_GLOSS_3K_SPECULAR.jpg",
   ]);
 
+  colorMap.repeat.set(scale, scale);
   colorMap.wrapS = THREE.RepeatWrapping;
   colorMap.wrapT = THREE.RepeatWrapping;
-
+  normalMap.repeat.set(scale, scale);
   normalMap.wrapS = THREE.RepeatWrapping;
   normalMap.wrapT = THREE.RepeatWrapping;
-
+  roughnessMap.repeat.set(scale, scale);
   roughnessMap.wrapS = THREE.RepeatWrapping;
   roughnessMap.wrapT = THREE.RepeatWrapping;
-
+  aoMap.repeat.set(scale, scale);
   aoMap.wrapS = THREE.RepeatWrapping;
   aoMap.wrapT = THREE.RepeatWrapping;
 
@@ -122,14 +124,14 @@ export const BaseboardMaterial = () => {
   aoMap.wrapS = THREE.RepeatWrapping;
   aoMap.wrapT = THREE.RepeatWrapping;
 
-  return <meshStandardMaterial color="#aaaaaa" map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap} />;
+  return <meshStandardMaterial color="#ffffff" map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap} />;
 };
 
 export const StuccoMaterial = ({ index }) => {
   const [colorMap] = useLoader(TextureLoader, [`/textures/baked-textures/stucco_${index}.jpg`]);
 
   colorMap.flipY = false;
-  return <meshStandardMaterial color="#888888" map={colorMap} />;
+  return <meshStandardMaterial map={colorMap} />;
 };
 
 export const AzurMaterial = () => {
