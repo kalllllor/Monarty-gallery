@@ -53,7 +53,7 @@ export default function Experience() {
   return (
     <>
       <Lockscreen isActivePainting={isActivePainting} deactivePainting={deactivePaintingCallback} activePainting={activePaintingRef.current} />
-      <Canvas gl={{ preserveDrawingBuffer: true }}>
+      <Canvas gl={{ preserveDrawingBuffer: true }} shadows>
         <Suspense fallback={<Loader />}>
           <Effects />
           <Physics gravity={[0, -1000, 0]}>

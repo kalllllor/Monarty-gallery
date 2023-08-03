@@ -81,7 +81,7 @@ export const FloorMetalMaterial = () => {
 export const WallMaterial = () => {
   const scale = 0.821;
   const [colorMap, normalMap, roughnessMap, aoMap] = useLoader(TextureLoader, [
-    "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_COL_VAR1_3K_SPECULAR.jpg",
+    "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_COL_VAR2_3K_SPECULAR.jpg",
     "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_NRM_3K_SPECULAR.jpg",
     "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_GLOSS_3K_SPECULAR.jpg",
     "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_GLOSS_3K_SPECULAR.jpg",
