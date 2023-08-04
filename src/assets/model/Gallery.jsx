@@ -39,7 +39,7 @@ const emissiveColor = {
 };
 
 export function Gallery({ getActivePainting, clickActivePainting, isActivePainting }) {
-  const { nodes } = useGLTF("/gallery_done.glb");
+  const { nodes } = useGLTF("/gallery.glb");
   const [paintings, setPaintings] = useState([]);
   const [frames, setFrames] = useState([]);
   const [elements, ref] = useArrayRef();
@@ -886,20 +886,16 @@ export function Gallery({ getActivePainting, clickActivePainting, isActivePainti
         <mesh geometry={nodes.sufit.geometry} name="sufit" material={nodes.sufit.material} position={[1.03691, 12, -0.410466]} scale={0.01}>
           <WallMaterial />
         </mesh>
-
-        <mesh geometry={nodes["podloga-jodelka002"].geometry} position={[6.287, 0, -4.007]}>
-          <HalfInfinityFloor />
-        </mesh>
-
         <mesh geometry={nodes.sciana_infinity.geometry} position={[3.31, -1.341, -6.232]}>
           <InfinityWallMaterial />
         </mesh>
         <mesh geometry={nodes.sciana_zewn.geometry} position={[9, 2.668, -8.707]}>
           <WallMaterial />
         </mesh>
+        <mesh geometry={nodes.grubosc001.geometry} position={[6.466, -0.34, -4.482]}></mesh>
       </group>
     </>
   );
 }
 
-useGLTF.preload("/gallery_done.glb");
+useGLTF.preload("/gallery.glb");

@@ -19,52 +19,44 @@ const Camera = ({ handleFinishAnimation }) => {
   useEffect(() => {
     camera.up = new Vector3(0, 1, 0);
     camera.position.set(-25.84, 6.19, 0.1);
-    camera.rotation.set(0, -1.06, 0);
-    runAnimation(camera);
+    camera.rotation.set(0, -1.5, 0);
+    let ctx = gsap.context(() => {
+      const tlPosition = gsap.timeline({
+        repeat: 0,
+      });
+      const tlRotation = gsap.timeline({
+        repeat: 0,
+        onComplete: completedFun,
+      });
+      if (camera) {
+        animationData.newData.forEach((element) => {
+          tlPosition.to(camera.position, {
+            duration: element.time,
+            repeat: 0,
+            x: element.position.x,
+            y: element.position.y,
+            z: element.position.z,
+            ease: "none",
+          });
+        });
+        tlRotation.to(camera.rotation, {
+          duration: 4.5,
+          repeat: 0,
+          x: 0,
+          y: -2.6,
+          z: 0,
+          ease: "none",
+        });
+      }
+      return () => ctx.revert();
+    });
   }, []);
 
   const completedFun = () => {
     handleFinishAnimation();
   };
 
-  const runAnimation = (camera) => {
-    const tlPosition = gsap.timeline({
-      repeat: 0,
-    });
-    const tlRotation = gsap.timeline({
-      repeat: 0,
-      onComplete: completedFun,
-    });
-    if (camera) {
-      animationData.newData.forEach((element) => {
-        tlPosition.to(camera.position, {
-          duration: element.time,
-          repeat: 0,
-          x: element.position.x,
-          y: element.position.y,
-          z: element.position.z,
-          ease: "none",
-        });
-
-        // tlRotation.to(camera.rotation, {
-        //   duration: element.time,
-        //   repeat: 0,
-        //   x: element.rotation.x,
-        //   y: element.rotation.y,
-        //   z: element.rotation.z,
-        //   ease: "none",
-        // });
-      });
-      tlRotation.to(camera.rotation, {
-        duration: 4.5,
-        repeat: 0,
-        x: 0,
-        y: -2.6,
-        z: 0,
-        ease: "none",
-      });
-    }
-  };
+  const runAnimation = (camera) => {};
 
   return (
     <PerspectiveCamera

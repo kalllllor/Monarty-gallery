@@ -81,26 +81,14 @@ export const FloorMetalMaterial = () => {
 export const WallMaterial = () => {
   const scale = 0.821;
   const [colorMap, normalMap, roughnessMap, aoMap] = useLoader(TextureLoader, [
-    "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_COL_VAR2_3K_SPECULAR.jpg",
-    "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_NRM_3K_SPECULAR.jpg",
-    "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_GLOSS_3K_SPECULAR.jpg",
-    "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_GLOSS_3K_SPECULAR.jpg",
+    "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_COL_VAR1_3K_SPECULAR.jpg",
   ]);
 
   colorMap.repeat.set(scale, scale);
   colorMap.wrapS = THREE.RepeatWrapping;
   colorMap.wrapT = THREE.RepeatWrapping;
-  normalMap.repeat.set(scale, scale);
-  normalMap.wrapS = THREE.RepeatWrapping;
-  normalMap.wrapT = THREE.RepeatWrapping;
-  roughnessMap.repeat.set(scale, scale);
-  roughnessMap.wrapS = THREE.RepeatWrapping;
-  roughnessMap.wrapT = THREE.RepeatWrapping;
-  aoMap.repeat.set(scale, scale);
-  aoMap.wrapS = THREE.RepeatWrapping;
-  aoMap.wrapT = THREE.RepeatWrapping;
 
-  return <meshStandardMaterial color="#ffffff" map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} />;
+  return <meshStandardMaterial color="#ffffff" map={colorMap} />;
 };
 
 //DREWNIANE LISTWY
@@ -209,21 +197,10 @@ export const SculptureMaterial = () => {
 };
 
 export const BackgroundMaterial = () => {
-  const [colorMap] = useLoader(TextureLoader, ["/textures/others/greenwich-park-03-4k_comp.png"]);
+  const [colorMap] = useLoader(TextureLoader, ["/textures/others/greenwich-park-03-4k-min.jpg"]);
   colorMap.flipY = false;
   return <meshStandardMaterial map={colorMap} color="#ffffff" />;
 };
-
-// export const HalfInfinityFloor = () => {
-//   const [alphaMap, colorMap] = useLoader(TextureLoader, [
-//     `/textures/baked-textures/infinity-floor_3_alphamap.jpg`,
-//     `/textures/baked-textures/infinity-floor_3.png`,
-//   ]);
-
-//   colorMap.flipY = false;
-//   alphaMap.flipY = false;
-//   return <meshStandardMaterial color="#aaaaaa" alphaMap={alphaMap} map={colorMap} alphaTest={0.5} />;
-// };
 
 export const HalfInfinityFloor = () => {
   const [alphaMap, colorMap, normalMap, roughnessMap, aoMap] = useLoader(TextureLoader, [
