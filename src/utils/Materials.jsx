@@ -119,7 +119,7 @@ export const StuccoMaterial = ({ index }) => {
   const [colorMap] = useLoader(TextureLoader, [`/textures/baked-textures/stucco_${index}.jpg`]);
 
   colorMap.flipY = false;
-  return <meshStandardMaterial map={colorMap} />;
+  return <meshStandardMaterial color="#eeeeee" map={colorMap} />;
 };
 
 export const AzurMaterial = () => {
