@@ -81,13 +81,20 @@ export const FloorMetalMaterial = () => {
 export const WallMaterial = () => {
   const scale = 0.821;
   const [colorMap, normalMap, roughnessMap, aoMap] = useLoader(TextureLoader, [
-    "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_COL_VAR1_3K_SPECULAR.jpg",
+    "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_COL_VAR2_3K_SPECULAR.jpg",
   ]);
 
   colorMap.repeat.set(scale, scale);
   colorMap.wrapS = THREE.RepeatWrapping;
   colorMap.wrapT = THREE.RepeatWrapping;
 
+  return <meshStandardMaterial color="#dddddd" map={colorMap} />;
+};
+
+export const BakedWallMaterial = () => {
+  const [colorMap] = useLoader(TextureLoader, ["/textures/baked-textures/walls_baked.png"]);
+
+  colorMap.flipY = false;
   return <meshStandardMaterial color="#ffffff" map={colorMap} />;
 };
 
@@ -202,36 +209,8 @@ export const BackgroundMaterial = () => {
   return <meshStandardMaterial map={colorMap} color="#ffffff" />;
 };
 
-export const HalfInfinityFloor = () => {
-  const [alphaMap, colorMap, normalMap, roughnessMap, aoMap] = useLoader(TextureLoader, [
-    `/textures/baked-textures/infinity-floor_3_alphamap.jpg`,
-    "/textures/texture_seamless/podloga_jodelka/WoodFlooring037_COL_VAR1_3K.jpg",
-    "/textures/texture_seamless/podloga_jodelka/WoodFlooring037_NRM_3K.jpg",
-    "/textures/texture_seamless/podloga_jodelka/WoodFlooring037_GLOSS_3K.jpg",
-    "/textures/texture_seamless/podloga_jodelka/WoodFlooring037_REFL_3K.jpg",
-  ]);
-
-  alphaMap.flipY = false;
-  colorMap.flipY = false;
-  normalMap.flipY = false;
-  roughnessMap.flipY = false;
-  aoMap.flipY = false;
-
-  return (
-    <meshStandardMaterial
-      alphaMap={alphaMap}
-      alphaTest={0.5}
-      color="#aaaaaa"
-      map={colorMap}
-      normalMap={normalMap}
-      roughnessMap={roughnessMap}
-      aoMap={aoMap}
-    />
-  );
-};
-
 export const InfinityWallMaterial = () => {
   const [colorMap] = useLoader(TextureLoader, [`/textures/baked-textures/infinity-walls-baked.jpg`]);
   colorMap.flipY = false;
-  return <meshStandardMaterial color="#aaaaaa" map={colorMap} />;
+  return <meshStandardMaterial color="#cccccc" map={colorMap} />;
 };

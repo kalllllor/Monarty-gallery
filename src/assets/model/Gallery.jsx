@@ -4,6 +4,7 @@ import {
   FloorMaterial,
   FloorMetalMaterial,
   WallMaterial,
+  BakedWallMaterial,
   BaseboardMaterial,
   StuccoMaterial,
   AzurMaterial,
@@ -13,7 +14,6 @@ import {
   EmissiveMaterial,
   SculptureMaterial,
   BackgroundMaterial,
-  HalfInfinityFloor,
   InfinityWallMaterial,
 } from "../../utils/Materials";
 import { RaycasterHelper } from "../../utils/Raycaster";
@@ -890,7 +890,7 @@ export function Gallery({ getActivePainting, clickActivePainting, isActivePainti
           <InfinityWallMaterial />
         </mesh>
         <mesh geometry={nodes.sciana_zewn.geometry} position={[9, 2.668, -8.707]}>
-          <WallMaterial />
+          <BakedWallMaterial />
         </mesh>
         <mesh geometry={nodes.grubosc001.geometry} position={[6.466, -0.34, -4.482]}></mesh>
       </group>
