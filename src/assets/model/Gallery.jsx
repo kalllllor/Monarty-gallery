@@ -39,7 +39,7 @@ const emissiveColor = {
 };
 
 export function Gallery({ getActivePainting, clickActivePainting, isActivePainting }) {
-  const { nodes } = useGLTF("/gallery.glb");
+  const { nodes } = useGLTF("/gallery_new.glb");
   const [paintings, setPaintings] = useState([]);
   const [frames, setFrames] = useState([]);
   const [elements, ref] = useArrayRef();
@@ -821,7 +821,7 @@ export function Gallery({ getActivePainting, clickActivePainting, isActivePainti
           <FloorMetalMaterial />
         </mesh>
         <mesh geometry={nodes.emisyjny002.geometry} name="emisyjny002" position={[0.5, 2.9, 9.74]} rotation={[0, Math.PI, 0]} scale={1}>
-          <EmissiveMaterial value={0.2} />
+          <EmissiveMaterial value={1.2} />
         </mesh>
         <mesh geometry={nodes.Lampa038.geometry} name="Lampa038" position={[-0.62, 2.89, -8.25]} scale={0.01}>
           <FloorMetalMaterial />
@@ -866,21 +866,21 @@ export function Gallery({ getActivePainting, clickActivePainting, isActivePainti
           <BaseboardMaterial />
         </mesh>
         <mesh geometry={nodes.emisyjny003.geometry} name="emisyjny003" position={[0.53, 15.72, 1.22]} rotation={[0, 0, Math.PI]} scale={0.01}>
-          <EmissiveMaterial value={0.1} />
+          <EmissiveMaterial value={1.1} />
         </mesh>
         <mesh geometry={nodes.emisyjny.geometry} name="emisyjny" position={[-7.75, 6.54, -8.82]} rotation={[0, -0.15708, 0]} scale={0.005}>
-          <EmissiveMaterial value={0.3} />
+          <EmissiveMaterial value={0.5} />
         </mesh>
         <mesh geometry={nodes.emisyjny001.geometry} name="emisyjny001" position={[-6.17, 2.02, 11.17]}>
-          <EmissiveMaterial value={0.1} />
+          <EmissiveMaterial value={1.1} />
         </mesh>
-        <mesh geometry={nodes["podloga-jodelka"].geometry}>
+        <mesh geometry={nodes["podloga-jodelka"].geometry} position={[4.558, 0, -8.332]}>
           <FloorMaterial />
         </mesh>
         <mesh geometry={nodes["podloga-metal"].geometry} name="podloga-metal" scale={0.01}>
           <FloorMetalMaterial />
         </mesh>
-        <mesh geometry={nodes.sciezka.geometry} name="sciezka" scale={0.01}>
+        <mesh geometry={nodes.sciezka.geometry} name="sciezka" scale={0.01} position={[0, 0.05, 0]}>
           <FloorMetalMaterial />
         </mesh>
         <mesh geometry={nodes.sufit.geometry} name="sufit" material={nodes.sufit.material} position={[1.03691, 12, -0.410466]} scale={0.01}>
@@ -898,4 +898,4 @@ export function Gallery({ getActivePainting, clickActivePainting, isActivePainti
   );
 }
 
-useGLTF.preload("/gallery.glb");
+useGLTF.preload("/gallery_new.glb");

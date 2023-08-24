@@ -1,7 +1,6 @@
-import { useRef, useEffect } from "react";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
-import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
+import { useControls } from "leva";
 import * as THREE from "three";
 
 const options = {
@@ -33,21 +32,20 @@ export const FloorMaterial = () => {
     "/textures/texture_seamless/podloga_jodelka/WoodFlooring037_GLOSS_3K.jpg",
     "/textures/texture_seamless/podloga_jodelka/WoodFlooring037_REFL_3K.jpg",
   ]);
-  const scale = 1;
-  colorMap.repeat.set(scale, scale);
+  colorMap.flipY = false;
   colorMap.wrapS = THREE.RepeatWrapping;
   colorMap.wrapT = THREE.RepeatWrapping;
-  normalMap.repeat.set(scale, scale);
   normalMap.wrapS = THREE.RepeatWrapping;
   normalMap.wrapT = THREE.RepeatWrapping;
-  roughnessMap.repeat.set(scale, scale);
+  normalMap.flipY = false;
   roughnessMap.wrapS = THREE.RepeatWrapping;
   roughnessMap.wrapT = THREE.RepeatWrapping;
-  aoMap.repeat.set(scale, scale);
+  roughnessMap.flipY = false;
   aoMap.wrapS = THREE.RepeatWrapping;
   aoMap.wrapT = THREE.RepeatWrapping;
+  aoMap.flipY = false;
 
-  return <meshStandardMaterial color="#aaaaaa" map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap} />;
+  return <meshStandardMaterial color="#ffffff" map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap} />;
 };
 
 //METALOWE CZESCI PODLOGI
@@ -73,14 +71,14 @@ export const FloorMetalMaterial = () => {
   aoMap.wrapS = THREE.RepeatWrapping;
   aoMap.wrapT = THREE.RepeatWrapping;
 
-  return <meshStandardMaterial color="#888888" map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap} />;
+  return <meshStandardMaterial color="#ffffff" map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap} />;
 };
 
 //SCIANY
 
 export const WallMaterial = () => {
   const scale = 0.821;
-  const [colorMap, normalMap, roughnessMap, aoMap] = useLoader(TextureLoader, [
+  const [colorMap] = useLoader(TextureLoader, [
     "/textures/texture_seamless/sciany-zewnetrzne/ConcreteCladdingSemiGlossy001_COL_VAR2_3K_SPECULAR.jpg",
   ]);
 
@@ -88,7 +86,7 @@ export const WallMaterial = () => {
   colorMap.wrapS = THREE.RepeatWrapping;
   colorMap.wrapT = THREE.RepeatWrapping;
 
-  return <meshStandardMaterial color="#dddddd" map={colorMap} />;
+  return <meshStandardMaterial color="#ffffff" map={colorMap} />;
 };
 
 export const BakedWallMaterial = () => {
@@ -126,7 +124,7 @@ export const StuccoMaterial = ({ index }) => {
   const [colorMap] = useLoader(TextureLoader, [`/textures/baked-textures/stucco_${index}.jpg`]);
 
   colorMap.flipY = false;
-  return <meshStandardMaterial color="#eeeeee" map={colorMap} />;
+  return <meshStandardMaterial color="#ffffff" map={colorMap} />;
 };
 
 export const AzurMaterial = () => {
@@ -155,7 +153,7 @@ export const GlassMaterial = () => {
 
   return (
     <meshPhysicalMaterial
-      color="#aaaaaa"
+      color="#dddddd"
       metalness={options.metalness}
       roughness={options.roughness}
       transmission={options.transmission}
@@ -212,5 +210,5 @@ export const BackgroundMaterial = () => {
 export const InfinityWallMaterial = () => {
   const [colorMap] = useLoader(TextureLoader, [`/textures/baked-textures/infinity-walls-baked.jpg`]);
   colorMap.flipY = false;
-  return <meshStandardMaterial color="#cccccc" map={colorMap} />;
+  return <meshStandardMaterial color="#dddddd" map={colorMap} />;
 };

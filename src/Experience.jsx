@@ -3,6 +3,7 @@ import Camera from "./components/Camera";
 import Lights from "./components/Lights";
 import Walls from "./components/Walls";
 import BaseCharacter from "./UI/BaseCharacter";
+import * as THREE from "three";
 import { useEffect, Suspense, useState, useRef } from "react";
 import { Physics, Debug } from "@react-three/cannon";
 import { PointerLockControls, Html, Environment, ScrollControls } from "@react-three/drei";
@@ -53,7 +54,7 @@ export default function Experience() {
   return (
     <>
       <Lockscreen isActivePainting={isActivePainting} deactivePainting={deactivePaintingCallback} activePainting={activePaintingRef.current} />
-      <Canvas gl={{ preserveDrawingBuffer: true }} shadows>
+      <Canvas gl={{ preserveDrawingBuffer: true, antialias: true, toneMapping: THREE.NoToneMapping }} linear>
         <Suspense fallback={<Loader />}>
           <Effects />
           <Physics gravity={[0, -100, 0]}>
@@ -63,6 +64,7 @@ export default function Experience() {
               clickActivePainting={clickActivePaintingCallback}
               isActivePainting={isActivePainting}
             />
+            {/* <Camera isEditing /> */}
 
             {isAnimationActive ? (
               <Camera handleFinishAnimation={handleFinishAnimationCallback} />

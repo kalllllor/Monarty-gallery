@@ -1,15 +1,9 @@
-import {
-  EffectComposer,
-  Bloom,
-} from "@react-three/postprocessing";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
 
 const Effects = () => {
   return (
     <EffectComposer>
-      <Bloom
-        luminanceThreshold={0.5}
-        luminanceSmoothing={1.5}
-      />
+      <Bloom luminanceThreshold={1.5} luminanceSmoothing={0.5} />
     </EffectComposer>
   );
 };
