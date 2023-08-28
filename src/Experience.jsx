@@ -11,7 +11,7 @@ import { Canvas, useThree } from "@react-three/fiber";
 import Loader from "./utils/Loader";
 import Effects from "./components/Effects";
 import Lockscreen from "./components/Lockscreen";
-
+import FirstScreen from "./components/FirstScreen";
 import "./style.css";
 
 export default function Experience() {
@@ -19,10 +19,11 @@ export default function Experience() {
   const pointerRef = useRef();
   const handleFinishAnimationCallback = () => {
     toggleAnimationActive(false);
+    setTsWalkingActive(true);
   };
 
   const [isActivePainting, setIsActivePainting] = useState(false);
-
+  const [isWalkingActive, setTsWalkingActive] = useState(false);
   const [activePainting, _setActivePainting] = useState(null);
   const activePaintingRef = useRef(activePainting);
   const setActivePainting = (data) => {
@@ -53,6 +54,7 @@ export default function Experience() {
 
   return (
     <>
+      {isWalkingActive && <FirstScreen startWalkingCallback={() => setTsWalkingActive(false)} />}
       <Lockscreen isActivePainting={isActivePainting} deactivePainting={deactivePaintingCallback} activePainting={activePaintingRef.current} />
       <Canvas gl={{ preserveDrawingBuffer: true, antialias: true, toneMapping: THREE.NoToneMapping }} linear>
         <Suspense fallback={<Loader />}>
